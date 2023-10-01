@@ -1,10 +1,10 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const gallery = document.querySelector('.gallery');
-gallery.insertAdjacentHTML('afterbegin', creatMarkup(galleryItems));
+ gallery.insertAdjacentHTML('afterbegin', creatMarkup(galleryItems));
 gallery.addEventListener('click', handlerOpen);
 
-let instance;
+ let instance;
 function handlerOpen(evt) {
   evt.preventDefault();
 
@@ -17,14 +17,14 @@ function handlerOpen(evt) {
   window.addEventListener('keydown', handlerClose);
 };
 
-function handlerClose(evt) {
+ function handlerClose(evt) {
   if (evt.code === 'Escape') {
     instance.close()
     window.removeEventListener('keydown', handlerClose);
   }
 };
 
-function creatMarkup(arr) {
+ function creatMarkup(arr) {
   return arr.map(({ preview, original, description}) =>
  `<li class="gallery__item">
   <a class="gallery__link" href="${preview}">
@@ -37,5 +37,5 @@ function creatMarkup(arr) {
   </a>
 </li>`).join('')
 };
-
+console.log(basicLightbox);
  console.log(galleryItems);
