@@ -2,10 +2,28 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const gallery = document.querySelector('.gallery');
  gallery.insertAdjacentHTML('afterbegin', creatMarkup(galleryItems));
-gallery.addEventListener('click', handlerOpen);
+ gallery.addEventListener('click', handlerOpen);
+
+/* перетворення массиву об'єктів в розмітку HTML*/
+
+  function creatMarkup(arr) {
+  return arr.map(({ preview, original, description}) =>
+ `<li class="gallery__item">
+  <a class="gallery__link" href="${preview}">
+    <img
+      class="gallery__image"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
+    />
+  </a>
+</li>`).join('')
+};
+
+/* використовування basicLightbox */
 
  let instance;
-function handlerOpen(evt) {
+ function handlerOpen(evt) {
   evt.preventDefault();
 
   const item = evt.target;
@@ -24,18 +42,4 @@ function handlerOpen(evt) {
   }
 };
 
- function creatMarkup(arr) {
-  return arr.map(({ preview, original, description}) =>
- `<li class="gallery__item">
-  <a class="gallery__link" href="${preview}">
-    <img
-      class="gallery__image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</li>`).join('')
-};
-console.log(basicLightbox);
  console.log(galleryItems);

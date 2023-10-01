@@ -2,7 +2,8 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const gallery = document.querySelector('.gallery');
 gallery.insertAdjacentHTML('afterbegin', markup(galleryItems));
- /* gallery.addEventListener('click', handlerOpen); */
+
+/*  перетворення массиву об'єктів в розмітку HTML  */
 
 function markup(arr) {
  return arr.map(({ preview, original, description }) =>
@@ -13,14 +14,12 @@ function markup(arr) {
 </li>`).join('')
 }
 
-/* function handlerOpen(evt) {
- evt.preventDefault();
+/*  використовування simpleLightbox  */
 
-} */
-const lightbox = new Simplelightbox('.gallary a', {
+const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionPosition: 'bottom',
   captionDelay: '250ms',
+});
 
-})
 console.log(galleryItems);
